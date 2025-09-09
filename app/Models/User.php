@@ -27,5 +27,7 @@ class User
             return new self($row['id'], $row['username'], $row['password']);
         }
         return null;
+
+        0*asmjabsdjasbaskjdbaksjdbkajsbdkajsbd*/ */
     }
 }
