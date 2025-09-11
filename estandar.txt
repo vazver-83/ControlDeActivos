@@ -1,0 +1,145 @@
+vazver-83: php controller class to handle login
+
+GitHub Copilot: Created [](file:///d%3A/Proyectos%20PHP/ControlDeActivos/app/Controllers/AuthController.php)
+
+A PHP controller class named `AuthController` has been created in AuthController.php to handle login and logout functionality. It expects a `User` model with a `findByUsername` method and a login view at `app/Views/login.php`. Let me know if you need the view or model methods as well.
+
+Made changes.
+
+vazver-83: create php view to loggin
+
+GitHub Copilot: Created [](file:///d%3A/Proyectos%20PHP/ControlDeActivos/app/Views/login.php)
+
+A PHP login view has been created at login.php. It includes a styled login form and displays error messages if provided by the controller. You can now use this view with your `AuthController`. Let me know if you need further customization or help!
+
+Made changes.
+
+vazver-83: create a php model class to handle login
+
+GitHub Copilot: Created [](file:///d%3A/Proyectos%20PHP/ControlDeActivos/app/Models/User.php)
+
+A PHP model class `User` has been created at User.php. It includes a static `findByUsername` method for login, using PDO to query a `users` table. Update the database connection and table/field names as needed for your environment. Let me know if you need further adjustments!
+
+Made changes.
+
+vazver-83: cual es la mejor practica de desarrollo para nombrar modelos, vistas y controladores en  proyecto web desarrollado en php
+
+GitHub Copilot: Las mejores prácticas para nombrar modelos, vistas y controladores en un proyecto web PHP suelen seguir convenciones de nomenclatura que mejoran la legibilidad, mantenibilidad y escalabilidad del código. Aquí tienes las recomendaciones más comunes:
+
+### Modelos
+- **Singular y PascalCase**: El nombre del modelo debe ser singular y usar PascalCase (primera letra de cada palabra en mayúscula).
+- **Ejemplo**:  
+  - `User`  
+  - `Product`  
+  - `AssetCategory`
+
+### Controladores
+- **Plural y PascalCase, terminando en "Controller"**: El nombre del controlador suele ser plural y termina con la palabra `Controller`.
+- **Ejemplo**:  
+  - `UsersController`  
+  - `ProductsController`  
+  - `AssetCategoriesController`
+
+> En algunos frameworks modernos como Laravel, se usa el nombre en singular (ej: `UserController`), pero ambos enfoques son aceptados mientras seas consistente.
+
+### Vistas
+- **Minúsculas y snake_case o kebab-case**: El nombre de la vista suele estar en minúsculas y puede usar guiones bajos (`_`) o guiones medios (`-`).  
+- **Ubicación**: Las vistas suelen estar en carpetas que representan el recurso.
+- **Ejemplo**:  
+  - `users/index.php`  
+  - `products/show.php`  
+  - `asset_categories/edit.php`
+
+---
+
+### Resumen de convenciones
+
+| Tipo         | Convención de nombre           | Ejemplo                  |
+|--------------|-------------------------------|--------------------------|
+| Modelo       | Singular, PascalCase          | `User`, `Product`        |
+| Controlador  | Plural, PascalCase + Controller | `UsersController`        |
+| Vista        | minúsculas, snake_case/kebab-case | `users/index.php`    |
+
+---
+
+**Consejo:**  
+Elige una convención y úsala de forma consistente en todo el proyecto. Esto facilita el trabajo en equipo y el mantenimiento del código.
+
+
+La mejor práctica para nombrar clases en un proyecto web desarrollado en PHP es:
+
+Usar PascalCase: Cada palabra inicia con mayúscula, sin guiones ni guiones bajos.
+Ejemplo: User, ProductCategory, AuthController
+
+Ser descriptivo: El nombre debe reflejar claramente la responsabilidad de la clase.
+
+Evitar abreviaturas innecesarias: Usa nombres completos y claros.
+
+Seguir el estándar PSR-1/PSR-4:
+
+El nombre de la clase debe coincidir con el nombre del archivo.
+Usar namespaces para organizar el código (por ejemplo, App\Models\User).
+Ejemplo de estructura:
+
+
+app/  Models/    User.php        // class User  Controllers/    AuthController.php // class AuthController
+Resumen:
+Usa PascalCase, nombres descriptivos, sin abreviaturas, y sigue los estándares PSR para mantener tu código organizado y profesional.
+
+Restore Checkpoint
+es una buena practicar utilizar este ejemplo para nombrar archivos tipo clase en php: Usuario.class.php
+
+estandar.txt
+Used 1 reference
+No, no es una buena práctica moderna nombrar archivos de clases en PHP como Usuario.class.php.
+
+Mejor práctica:
+Usa solo el nombre de la clase en PascalCase y la extensión .php.
+Por ejemplo:
+
+Usuario.php (para la clase Usuario)
+User.php (para la clase User)
+Razón:
+
+Los estándares actuales (como PSR-1 y PSR-4) recomiendan que el archivo se llame igual que la clase, sin sufijos como .class.
+Facilita el autoloading y la integración con frameworks modernos.
+Resumen:
+Prefiere Usuario.php en lugar de Usuario.class.php.
+
+La mejor práctica para estructurar los directorios de un proyecto web en PHP usando el patrón MVC es separar claramente Modelos, Vistas y Controladores, junto con otros recursos del sistema. Una estructura recomendada y ampliamente utilizada es la siguiente:
+
+
+/project-root
+│
+├── app/
+│   ├── Controllers/      # Controladores (lógica de negocio y flujo)
+│   │   └── AuthController.php
+│   ├── Models/           # Modelos (acceso a datos y lógica de negocio)
+│   │   └── User.php
+│   ├── Views/            # Vistas (archivos de presentación)
+│   │   └── login.php
+│   └── Core/             # Clases base, helpers, middlewares, etc.
+│
+├── public/               # Document root del servidor web (index.php, assets públicos)
+│   ├── index.php
+│   ├── css/
+│   ├── js/
+│   └── images/
+│
+├── config/               # Archivos de configuración (DB, rutas, etc.)
+│   └── config.php
+│
+├── vendor/               # Dependencias externas (Composer)
+│
+├── storage/              # Archivos generados, logs, caché, uploads
+│
+├── tests/                # Pruebas automatizadas
+│
+├── composer.json         # Configuración de Composer
+└── README.md
+Consejos adicionales:
+public/ debe ser el único directorio accesible desde el navegador.
+app contiene toda la lógica de la aplicación y debe estar fuera del alcance público.
+Usa namespaces para organizar tus clases.
+Mantén la estructura consistente y clara para facilitar el mantenimiento y la colaboración.
+Esta estructura sigue las mejores prácticas modernas y es compatible con frameworks populares como Laravel y Symfony
